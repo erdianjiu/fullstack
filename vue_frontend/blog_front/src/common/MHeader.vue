@@ -17,7 +17,6 @@
           class="searchbar"
           placeholder="找什么..."
           suffix-icon="el-icon-search"
-          v-model="productInfo"
           minlength="1"
           maxlength="100"
         >

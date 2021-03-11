@@ -13,7 +13,7 @@
         class="demo-ruleForm"
       >
         <el-form-item label="账号" prop="user">
-          <el-input type="text" v-model="ruleForm.username" autocomplete="off" placeholder="请输入账号"></el-input>
+          <el-input type="text" v-model="ruleForm.userName" autocomplete="off" placeholder="请输入账号"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="pass">
           <el-input type="password" v-model="ruleForm.password" autocomplete="off" placeholder="请输入密码"></el-input>
@@ -28,8 +28,8 @@
   </div>
 </template>
 <script>
-import { setStore, getStore, removeStore } from "@/utils/storage";
 import url from '@/serviceAPI.config.js'
+import { setStore, getStore, removeStore } from "../../utils/storage";
 import axios from 'axios'
 import { Toast } from 'vant'
 export default {
@@ -50,7 +50,7 @@ export default {
     };
     return {
       ruleForm: {
-        username: "",
+        userName: "",
         password: ""
       },
       rules: {
@@ -65,24 +65,24 @@ export default {
         url: url.login,
         method: 'post',
         data:{
-            username:this.ruleForm.username,
+            userName:this.ruleForm.userName,
             password:this.ruleForm.password 
         }
     })
     .then(response => {
-        console.log(response)
-        //如果返回code为200，代表注册成功，我们给用户作Toast提示
-        if(response.data.code == 200){
-          console.log(response)
-            Toast.success('注册成功')
+         console.log(response)
+        if(response.data.code==200 && response.data.message){
+            let token = response.data.token;
+            setStore('token', token);
+            Toast.success('登录成功')
+            this.$router.push('/admin')
         }else{
-            console.log(response.data.message)
-            Toast.fail('注册失败')
+            Toast.fail('登录失败')
+            // this.openLoading = false
         }
-            console.log(response.data.code)
     })
     .catch((error) => {   
-        Toast.fail('注册失败')  
+        Toast.fail('登录失败')  
     })
 }
     // submitForm(formName) {
