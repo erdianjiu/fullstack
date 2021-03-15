@@ -29,9 +29,8 @@
 </template>
 <script>
 import url from '@/serviceAPI.config.js'
-import { setStore, getStore, removeStore } from "../../utils/storage";
+import { setStore} from "../../utils/storage"
 import axios from 'axios'
-import { Toast } from 'vant'
 export default {
   data() {
     let validateUser = (rule, value, callback) => {
@@ -74,15 +73,14 @@ export default {
         if(response.data.code==200 && response.data.message){
             let token = response.data.token;
             setStore('token', token);
-            Toast.success('登录成功')
             this.$router.push('/admin')
         }else{
-            Toast.fail('登录失败')
+            console.log("login failed")
             // this.openLoading = false
         }
     })
     .catch((error) => {   
-        Toast.fail('登录失败')  
+        console.log('login failed')  
     })
 }
     // submitForm(formName) {

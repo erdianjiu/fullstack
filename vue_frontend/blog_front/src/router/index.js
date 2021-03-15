@@ -66,7 +66,18 @@ const routes = [{
         component: Admin,
         meta: {
             auth: true
-        }
+        },
+        children: [{
+                path: '/admin/write',
+                component: () =>
+                    import ('@/views/BManagement/Write')
+            },
+            {
+                path: '/admin/summary',
+                component: () =>
+                    import ('@/views/BManagement/Summary')
+            },
+        ]
     }
 
 ]

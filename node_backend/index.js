@@ -13,10 +13,14 @@ app.use(bodyparser())
     // 引入user.js
 let user = require('./appApi/login.js')
 let valid = require('./appApi/validate.js')
+let add = require('./appApi/addblog.js')
+    // let amendblog = require('./appApi/amendblog.js')
     //装载子路由
 let router = new Router();
 router.use('/login', user.routes())
 router.use('/validate', valid.routes())
+router.use('/addblog', add.routes())
+    // router.use('/amendblog', amendblog.routes())
     //加载路由中间件
 app.use(router.routes())
 app.use(router.allowedMethods())
@@ -24,22 +28,22 @@ app.use(router.allowedMethods())
 
 //立即执行函数
 ;
-// (async() => {
-//     await connect()
-//     initSchemas()
-//     const User = mongoose.model('User')
-//     let oneUser = new User({ userName: '', password: '' })
+(async() => {
+    await connect()
+    initSchemas()
+    const User = mongoose.model('User')
+    let oneUser = new User({ userName: '', password: '' })
 
-//     oneUser.save().then(() => {
-//         console.log('插入成功')
+    oneUser.save().then(() => {
+        console.log('插入成功')
 
-//     })
-//     let users = await User.findOne({}).exec()
+    })
+    let users = await User.findOne({}).exec()
 
-//     console.log('------------------')
-//     console.log(users)
-//     console.log('------------------')
-// })()
+    console.log('------------------')
+    console.log(users)
+    console.log('------------------')
+})()
 
 
 app.use(async(ctx) => {

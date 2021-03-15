@@ -4,11 +4,12 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import { Toast } from "vant"
 import { getStore } from './utils/storage'
 import url from '@/serviceAPI.config.js'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
-Vue.use(Toast);
+Vue.use(mavonEditor)
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 
