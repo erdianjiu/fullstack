@@ -19,6 +19,7 @@
       class="distance"
     ></el-input>
     <el-button type="primary" @click="axiosaddblog">发布博客</el-button>
+    <el-button type="primary" >图片上传</el-button>
   </div>
 </template>
 
@@ -48,7 +49,7 @@ export default {
           if(Response.data.code == 100){
               alert("发布成功");
           }else{
-              alert("发布失败else");
+              alert("发布失败，状态码错误");
           }
       })
       .catch((error) => {

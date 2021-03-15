@@ -14,13 +14,13 @@ app.use(bodyparser())
 let user = require('./appApi/login.js')
 let valid = require('./appApi/validate.js')
 let add = require('./appApi/addblog.js')
-    // let amendblog = require('./appApi/amendblog.js')
+let showblog = require('./appApi/showblog.js')
     //装载子路由
 let router = new Router();
 router.use('/login', user.routes())
 router.use('/validate', valid.routes())
 router.use('/addblog', add.routes())
-    // router.use('/amendblog', amendblog.routes())
+router.use('/showblog', showblog.routes())
     //加载路由中间件
 app.use(router.routes())
 app.use(router.allowedMethods())
