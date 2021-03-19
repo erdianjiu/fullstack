@@ -19,7 +19,7 @@ router.post('/', async(ctx) => {
         } else {
             // token合法
             const Blog = mongoose.model('Blog')
-            let oneBlog = new Blog({ title: blogdata.title, target: blogdata.target, body: blogdata.body })
+            let oneBlog = new Blog({ title: blogdata.title, target: blogdata.target, body: blogdata.body, abstract: blogdata.abstract, personal: blogdata.personal })
             oneBlog.save().then(() => {
                 console.log('博客插入成功')
             })

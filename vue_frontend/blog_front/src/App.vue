@@ -6,17 +6,18 @@
 
 <style>
 /* 样式初始化 */
-@import 'assets/style/base.css';
+@import "assets/style/base.css";
 #app {
   height: 100%;
 }
-.mainshow{
-  background-color: #fff;
-  width: 100%;
-  height: 100vh;
-}
-::-webkit-scrollbar{
- display:none;/*ChromeSafari*/
- }
 
+/* 禁用markdown样式 */
+.octicon,
+.octicon-link {
+  display: none !important;
+}
+
+::-webkit-scrollbar {
+  display: none; /*ChromeSafari*/
+}
 </style>

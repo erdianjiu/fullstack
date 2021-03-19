@@ -6,13 +6,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import { getStore } from './utils/storage'
 import url from '@/serviceAPI.config.js'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
-
-
+Vue.use(mavonEditor)
 Vue.use(ElementUI);
 Vue.config.productionTip = false
-
-// 挂载axios到vue的原型，由于继承性，所有的组件都可以使用this.$http
+    // 挂载axios到vue的原型，由于继承性，所有的组件都可以使用this.$http
 import axios from 'axios';
 Vue.prototype.$http = axios;
 // 请求拦截

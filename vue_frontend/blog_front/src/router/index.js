@@ -24,7 +24,8 @@ const Summary = () =>
     import ('@/views/Summary');
 const Admin = () =>
     import ('@/views/Admin');
-// const User = () => import('@/views/User');
+const Blogdetail = () =>
+    import ('@/views/Blogdetail');
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,11 @@ const routes = [{
             {
                 path: 'summary',
                 component: Summary
+            },
+            {
+                path: 'blogdetail',
+                name: 'blogdetail',
+                component: Blogdetail
             }
         ]
     },
@@ -83,7 +89,7 @@ const routes = [{
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     base: process.env.BASE_URL,
     routes
 })

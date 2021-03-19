@@ -1,15 +1,17 @@
 <template>
   <div>
-    <el-row>
-      <el-col :span="1"><div>左间隔</div></el-col>
-      <el-col :span="8"><div class="blogContent"></div></el-col>
-      <el-col :span="14">
-        <div class="blogContent">
-          <showblog></showblog>
-        </div>
+    <el-row class='mainshow'>
+      <el-col :span="2">
+        <!-- 左间隔 -->
       </el-col>
-      <el-col :span="1">
-        <div>右间隔</div>
+      <el-col :span="6"><div class="blogContent"></div></el-col>
+      <el-col :span="16">
+        
+          <showblog></showblog>
+  
+      </el-col>
+      <el-col :span="2">
+        <!-- 右间隔 -->
       </el-col>
     </el-row>
   </div>
@@ -18,6 +20,7 @@
 
 <script>
 import Showblog from "@/common/Showblog";
+
 export default {
   components: {
     Showblog,
@@ -27,6 +30,9 @@ export default {
 
 
 <style scoped>
+/* .mainshow{
+  margin-top: 68px;
+} */
 .el-row {
   margin-bottom: 20px;
   height: 1500px;

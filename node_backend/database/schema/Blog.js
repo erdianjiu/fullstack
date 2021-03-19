@@ -8,6 +8,8 @@ const blogSchema = new Schema({
     target: String,
     title: { unique: true, type: String },
     body: String,
+    abstract: String,
+    personal: Boolean,
     date: { type: Date, default: Date.now },
 }, {
     collection: 'blog'

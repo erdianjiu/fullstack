@@ -29,13 +29,17 @@
 
 <style scoped>
 .myheader {
-  background-color: #ededed;
+  background-color: #fafafa;
+  width: 100vw;
   height: 61px;
   overflow: auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  position: fixed;
+  margin-top: -68px;
+  z-index: 999;
 }
 /* .myheader::-webkit-scrollbar {
-        display: none;/*隐藏滚动条*/
+        display: none;/*隐藏滚动条*
 
 /* 左半部分导航 */
 .left-nav {
